@@ -1,0 +1,183 @@
+#logo {
+    height: 250px;
+    width: 350px;
+    margin-left: 125px;
+}
+
+
+
+#navbarr {
+    
+    font-family: Consolas;
+    background-color: #0E8EA8;
+    color: #fff;
+    border-radius: 0;
+    
+    
+    
+}
+
+#dropit {
+    background-color: #83D1E1;
+    color: #212529;
+    border-radius: 0;
+    min-width: 50%;
+}
+
+h1 {
+    text-align: center;
+    font-family: Calibri;
+    color: #212529;
+}
+
+h2 {
+    text-align: center;
+    font-family: Calibri;
+    color: #212529;
+}
+
+
+
+#personalTable  {
+    text-align: center;
+}
+
+#header {
+    font-family: Consolas;
+    background-color: #0E8EA8;
+    color: #fff;
+}
+
+#tableRows {
+    font-family: Calibri;
+    background-color: #83D1E1;
+    color: #212529;
+
+}
+
+#scheduleRows {
+    font-family: Calibri;
+    background-color: #83D1E1;
+    color: #212529;
+
+}
+
+.flex-parent {
+    display: flex;
+  }
+
+
+
+#out{
+    font-family: Consolas;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 4px;
+    border-color: #dc3545;
+    width: 100px;
+}
+
+#in{
+    font-family: Consolas;
+    background-color: #198754;
+    color: #fff;
+    border-radius: 4px;
+    border-color: #198754;
+    width: 100px;
+}
+
+#add{
+    font-family: Consolas;
+    background-color: #198754;
+    color: #fff;
+    border-radius: 4px;
+    border-color: #198754;
+    width: 100px;
+}
+
+#clear{
+    font-family: Consolas;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 4px;
+    border-color: #dc3545;
+    width: 100px;
+    
+}
+
+#clock{
+    text-align: right;
+    margin-right: 15px;
+}
+
+#clock1{
+    text-align: right;
+    margin-right: 15px;
+}
+
+
+
+#wrap{
+    min-width: 800px;
+    }
+
+
+#deliveryRows{
+    font-family: Calibri;
+    background-color: #83D1E1;
+    color: #212529;
+    
+}
+
+
+.button1:hover {
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 0 4px rgba(3,3,3,0.8); 
+    opacity: 0.9;
+} 
+
+tr:hover {
+    background-color: #87dcec;
+}
+
+
+.flex-parent-element {
+    display: flex;
+    width: 50%;
+  }
+  
+  .flex-child-element {
+    flex: 1;
+  }
+  
+  .flex-child-element:first-child {
+    text-align:left;
+    margin-left: 12px;
+  }
+
+  .flex-child-element:last-child {
+    text-align:right;
+    margin-right: -12px;
+  }
+
+  .selected {
+    background-color: rgb(51, 155, 224);
+    color: #FFF;
+}
+
+#toastPhoto {
+    border-radius: 50%;
+}
+
+
+ .toast-message{
+    font-family: Calibri; 
+}
+
+
+#toast-container > .toast{
+    opacity: 1;
+    font-size: 16px;
+}
+

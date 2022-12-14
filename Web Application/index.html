@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeDeliverTech - Dashboard</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="icon" type="image/x-icon" href="/Web Application/Company logo.png">
+    <link rel="stylesheet" href="wdt.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="wdt_app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+</head>
+<body>
+
+    
+
+     
+    <a href="/Web Application/index.html"><img src="/Web Application/Company_logo_transparent.png" alt="The company logo" id="logo"></a>
+      <div class="dropdown btn-group">
+        
+        <a href="/Web Application/index.html"><button class="btn btn-primary" id="navbarr">Dashboard</button></a>
+
+        <button class="btn btn-primary dropdown-toggle ms-1" id="navbarr" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Inventory
+        </button>
+        <ul class="dropdown-menu" id="dropit">
+          <li><a class="dropdown-item" href="#">Search</a></li>
+          <li><a class="dropdown-item" href="#">Add</a></li>
+          <li><a class="dropdown-item" href="#">Remove</a></li>
+        </ul>
+
+        <button class="btn btn-primary dropdown-toggle ms-1" id="navbarr" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Orders
+          </button>
+          <ul class="dropdown-menu" id="dropit">
+            <li><a class="dropdown-item" href="#">Search</a></li>
+            <li><a class="dropdown-item" href="#">Add</a></li>
+            <li><a class="dropdown-item" href="#">Remove</a></li>
+          </ul>
+
+          
+        </div>
+      </div>
+    
+
+<div><h1>Reception Management Dashboard</h1></div>
+<div><h2>Staff</h2></div>
+
+
+
+
+<section>
+    <div id="employee" class="container text-center">
+      <div class="row">
+        <div class="col mb-5 ">
+          <div class="col">
+          </div>
+        </div>
+        <div class="row">
+          <table class="table table-bordered" id="select">
+            <thead>
+              <tr class="table" id="header">
+                <th scope="col">Picture</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Email address</th>
+                <th scope="col">Status</th>
+                <th scope="col">Out Time</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Expected Return Time</th>
+              </tr>
+            </thead>
+            <tbody id="tableRows">
+            </tbody>
+          </table>
+          
+        </div>
+
+        <div class="flex-parent-element">
+            
+            <div class="flex-child-element">
+                <button id="out" class="button1">Out</button>
+                </div>
+            <div class="flex-child-element">
+                    <button id="in" class="button1" >In</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+  </section>
+
+
+
+<script>
+  var table = document.getElementById('select'),
+  selected = table.getElementsByClassName('selected');
+  table.onclick = highlight;
+    function highlight(e) {
+      if (selected[0]) selected[0].className = '';
+      e.target.parentNode.className = 'selected';
+  } 
+
+
+</script>
+
+
+
+
+<br>
+
+<div><h2>Schedule Delivery</h2></div>
+
+<section>
+    <div id="employee" class="container text-center">
+      <div class="row">
+        <div class="col mb-5 ">
+          <div class="col ">
+          </div>
+        </div>
+        <div class="row">
+          <table class="table table-bordered table-sm" id="employeeTable">
+            <thead>
+              <tr class="table" id="header">
+                <th scope="col">Vehicle:</th>
+                <th scope="col">Name:</th>
+                <th scope="col">Surname:</th>
+                <th scope="col">Telephone:</th>
+                <th scope="col">Address:</th>
+                <th scope="col">Return Time:</th>
+
+              </tr>
+            </thead>
+            <tbody id="scheduleRows">
+                <tr>
+                    <td><input id="vehicleField" type="text" placeholder="Car or Motorcycle" required /></td>
+                    <td><input id="nameField" type="text" placeholder="John" required /></td>
+                    <td><input id="surnameField" type="text" placeholder="Handcock" required /></td>
+                    <td><input id="telField" type="tel" placeholder="12345678" required /></td>
+                    <td><input id="addressField" type="text" placeholder="3 Nowhere Lane" required /></td>
+                    <td><input id="timeField" type="time" required /></td>
+
+                </tr>
+
+                </tr>                    
+            </tbody>
+          </table>
+          
+        </div>
+        <div class="rightButton" style="text-align:right; width:100%; padding:0">
+            <button id="add" class="button1" onclick="addDelivery()">Add</button>
+        </div>
+        
+  </section>
+
+<br>
+
+<div><h2>Delivery Board</h2></div>
+
+  <section>
+    <div id="employee" class="container text-center">
+      <div class="row">
+        <div class="col mb-5 ">
+          <div class="col">
+          </div>
+        </div>
+        <div class="row">
+          <table class="table table-bordered select2">
+            <thead>
+              <tr class="table" id="header">
+                <th scope="col">Vehicle</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Delivery Address</th>
+                <th scope="col">Return Time</th>
+                
+              </tr>
+            </thead>
+            <tbody id="deliveryRows">                    
+            </tbody>
+          </table>
+          <div style="text-align:right; width:100%; padding:0">
+            <button onclick="deleteRow()" id="clear" class="button1" >Clear</button>
+          </div>
+          
+        </div>
+  </section>
+ 
+</div>
+
+
+  
+    
+
+<br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="clock">Current Date and Time is: <span id="datetime"></span></p>
+
+
+
+</body>
+</html>
