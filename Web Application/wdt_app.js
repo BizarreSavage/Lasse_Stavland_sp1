@@ -2,38 +2,20 @@
 //API call to get 5 random users to populate the staff table
 //Here we can easily edit the URL to get as many random users populated as we want. 
 //Just edit the "api/?results=5'" part to any number you'd like.
+function staffUserGet(){
+    $.ajax({
+        url: 'https://randomuser.me/api/?results=5',
+        dataType: 'json',
+        success: function(data) {
+            random = data;
+            console.log(data);
+            console.log(random);
+        }
+    })};
 
-$.ajax({
-    url: 'https://randomuser.me/api/?results=5',
-    dataType: 'json',
-    success: function(data) {
-        random = data;
-        console.log(data);
-        console.log(random);
-    }
-}); 
+staffUserGet();
 
-
-
-//This is the function that creates the digital clock on the bottom of the dashboard.
-
-function klokke1(){var dt = new Date();
-    document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ 
-    (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2))
-     +":"+ (("0"+dt.getMinutes()).slice(-2)) + ":" + (("0"+dt.getSeconds()).slice(-2));}    
-
-setInterval(klokke1, 1000);
-
-
-  
-
-
-
-
-
-
-
-//This is all the class factories
+//This is all the class
 
 class Employee{
     name;
@@ -258,7 +240,8 @@ function loadAPI(){
         
 
 //This function changes the objects status to "Out", calculates the expected return time, and starts the setTimeout for the toast.
-            $("#out").click(function(){
+            
+    $("#out").click(function(){
                 
                 duration = parseInt(prompt("Estimated absence of " + roww[rowa].name + " " + roww[rowa].surname + " in minutes?"));
                 check();
@@ -292,17 +275,14 @@ function loadAPI(){
         }
 
 
-
-
-
-                function timeConvert(n) {
-                    var num = n;
-                    var hours = (num / 60);
-                    var rhours = Math.floor(hours);
-                    var minutess = (hours - rhours) * 60;
-                    var rminutes = Math.round(minutess);
-                    return rhours + "h " + rminutes + "m.";
-                    }
+            function timeConvert(n) {
+                var num = n;
+                var hours = (num / 60);
+                var rhours = Math.floor(hours);
+                var minutess = (hours - rhours) * 60;
+                var rminutes = Math.round(minutess);
+                return rhours + "h " + rminutes + "m.";
+            }
                    
 
       
@@ -415,3 +395,12 @@ function addDelivery() {
 
 
 
+//This is the function that creates the digital clock on the bottom of the dashboard.
+
+function digitalClock(){
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"."+ 
+    (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2))
+     +":"+ (("0"+dt.getMinutes()).slice(-2)) + ":" + (("0"+dt.getSeconds()).slice(-2));}    
+
+setInterval(digitalClock, 1000);
