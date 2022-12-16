@@ -1,7 +1,7 @@
 
 //API call to get 5 random users to populate the staff table
 //Here we can easily edit the URL to get as many random users populated as we want. 
-//Just edit the "api/?results=5'" part to any number you'd like.
+//This function will create all the class objects and push them in to an array. 
 function staffUserGet(){
     $.ajax({
         url: 'https://randomuser.me/api/?results=5',
@@ -11,11 +11,15 @@ function staffUserGet(){
             console.log(data);
             console.log(random);
         }
-    })};
+    });
+    window.addEventListener('load', () => {for(i = 0; i < random.results.length; i++) {
+        var roww2 = new StaffMember(random.results[i].name.first, random.results[i].name.last, random.results[i].picture, random.results[i].email, "In", "", "", "");
+        roww.push(roww2);
+        }})
+};
 
 staffUserGet();
 
-//This is all the class
 
 class Employee{
     name;
@@ -46,9 +50,6 @@ class StaffMember extends Employee {
         this.expectedReturnTime = expectedReturnTime;
     }
 
-    //Function that creates the toast for the StaffMember table. 
-    //Here we can edit the Staff toast info/data/layout
-
     staffMemberIsLate = function (){
         var minutes = duration;
         var seconds = minutes * 60;
@@ -71,15 +72,12 @@ class StaffMember extends Employee {
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut",
             "tapToDismiss": true
-        }
-        
-            
-        }
+        }};
     
         let workz = rowa;
 
         staff.splice(workz, 1, setTimeout(function(){
-            toastr["info"]("This employee is not back yet! <br>" + roww[workz].name + " should been back at: " + roww[workz].expectedReturnTime + 
+            toastr["info"]("This employee is not back yet! <br>" + roww[workz].name + " has been away for: " + roww[workz].duration + " and should been back at: " + roww[workz].expectedReturnTime + 
                             ".  <br /><button type='button' class='btn btn-primary'>Ok</button>",'<img src="' + roww[workz].picture.thumbnail + '"' +
                             'id="toastPhoto" alt="randomMan">  ' + roww[workz].name + " " + roww[workz].surname)    
             },milliseconds));}
@@ -99,8 +97,6 @@ class DeliveryDriver extends Employee {
         this.returnTime = returnTime;
     }
     deliveryDriverIsLate = function (){
-
-        // The specs of the toasts placement and animation
                     toastr.options = {
                     "closeButton": true,
                     "debug": false,
@@ -118,9 +114,6 @@ class DeliveryDriver extends Employee {
                     "hideMethod": "fadeOut",
                     "tapToDismiss": true
             }
-            
-        //This will calculate the differense between now and the provided return time string so we have a "duration" to give the setTimeout function for the toast.
-        //It bugs out if return time is past midnight/next day so need to figure out a bugfix that later. 
             var times = this.returnTime;
             var indexed = this.name;
             var hhours = times.split(":")[0];
@@ -178,12 +171,6 @@ class DeliveryDriver extends Employee {
 
 window.addEventListener('load', () => {
 
-    for(i = 0; i < random.results.length; i++) {
-    var roww2 = new StaffMember(random.results[i].name.first, random.results[i].name.last, random.results[i].picture, random.results[i].email, "In", "", "", "");
-    roww.push(roww2);
-    }
-    
-
 
 function loadAPI(){
     for (i=0; i < roww.length; i++){
@@ -222,8 +209,8 @@ function loadAPI(){
       });
 
 // This function edits the staffmembers status to "Inn" and clears the Timeout for that object.
-    $("#in").click(function(){
-        
+    function staffInn(){
+        $("#in").click(function(){
                    roww[rowa].status = "In";
                    roww[rowa].outTime = "";
                    roww[rowa].duration = "";
@@ -236,12 +223,14 @@ function loadAPI(){
                       
                     clearTimeout(staff[rowa]);
                     
-            });
+            })};
+            staffInn();
         
 
 //This function changes the objects status to "Out", calculates the expected return time, and starts the setTimeout for the toast.
             
-    $("#out").click(function(){
+    function staffOut() {
+        $("#out").click(function(){
                 
                 duration = parseInt(prompt("Estimated absence of " + roww[rowa].name + " " + roww[rowa].surname + " in minutes?"));
                 check();
@@ -271,21 +260,21 @@ function loadAPI(){
 
                         } else {return alert("Absense has to be specified in numbers. Please try again.")}
                     }}
-            )
+            )}
+            staffOut();  
         }
 
 
-            function timeConvert(n) {
-                var num = n;
-                var hours = (num / 60);
-                var rhours = Math.floor(hours);
-                var minutess = (hours - rhours) * 60;
-                var rminutes = Math.round(minutess);
-                return rhours + "h " + rminutes + "m.";
-            }
+function timeConvert(n) {
+    var num = n;
+    var hours = (num / 60);
+    var rhours = Math.floor(hours);
+    var minutess = (hours - rhours) * 60;
+    var rminutes = Math.round(minutess);
+    return rhours + "h " + rminutes + "m.";
+}
                    
-
-      
+  
 
 
 loadAPI();
