@@ -19,11 +19,8 @@
 </head>
 <body>
 
-    
-
-     
-    <a href="/Web Application/index.html"><img src="/Web Application/Company_logo_transparent.png" alt="The company logo" id="logo"></a>
-      <div class="dropdown btn-group">
+ 
+      <div class="dropdown btn-group" id="toTheRight">
         
         <a href="/Web Application/index.html"><button class="btn btn-primary" id="navbarr">Dashboard</button></a>
 
@@ -48,15 +45,11 @@
           
         </div>
       </div>
-    
-
+    <div><a href="/Web Application/index.html"><img src="/Web Application/Company_logo_transparent.png" alt="The company logo" id="logo"></a>
 <div><h1>Reception Management Dashboard</h1></div>
 <div><h2>Staff</h2></div>
-
-
-
-
-<section id="unSelect">
+</div>
+<section>
     <div id="employee" class="container text-center">
       <div class="row">
         <div class="col mb-5 ">
@@ -64,7 +57,7 @@
           </div>
         </div>
         <div class="row">
-          <table class="table table-bordered" id="select">
+          <table class="table table-bordered rounded overflow-hidden" id="select">
             <thead>
               <tr class="table" id="header">
                 <th scope="col">Picture</th>
@@ -98,7 +91,6 @@
   </section>
 
 
-
 <script>
   var table = document.getElementById('select'),
   selected = table.getElementsByClassName('selected');
@@ -112,23 +104,20 @@
 </script>
 
 
-
-
 <br>
 
 <div><h2>Schedule Delivery</h2></div>
 
-<section id="unSelect">
+<section>
     <div id="employee" class="container text-center">
       <div class="row">
         <div class="col mb-5 ">
-          <div class="col ">
-          </div>
+          
         </div>
         <div class="row">
-          <table class="table table-bordered table-sm" id="employeeTable">
+          <table class="table table-bordered rounded overflow-hidden table-sm" id="employeeTable">
             <thead>
-              <tr class="table" id="header">
+              <tr class="table " id="header">
                 <th scope="col">Vehicle:</th>
                 <th scope="col">Name:</th>
                 <th scope="col">Surname:</th>
@@ -157,6 +146,7 @@
         <div class="rightButton" style="text-align:right; width:100%; padding:0">
             <button id="add" class="button1" onclick="addDelivery()">Add</button>
         </div>
+      </div>
         
   </section>
 
@@ -164,7 +154,7 @@
 
 <div><h2>Delivery Board</h2></div>
 
-  <section id="unSelect">
+  <section>
     <div id="employee" class="container text-center">
       <div class="row">
         <div class="col mb-5 ">
@@ -172,7 +162,7 @@
           </div>
         </div>
         <div class="row">
-          <table class="table table-bordered select2">
+          <table class="table table-bordered rounded overflow-hidden">
             <thead>
               <tr class="table" id="header">
                 <th scope="col">Vehicle</th>
@@ -195,27 +185,7 @@
   </section>
  
 </div>
-
-
-  
-    
-
-<br><br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-<p id="clock">Current Date and Time is: <span id="datetime"></span></p>
-
-
-
-</body>
+  <br><br><br>
+    <p id="clock">Current Date and Time is: <span id="datetime"></span></p>
+  </body>
 </html>
