@@ -1,10 +1,14 @@
 #logo {
-    height: 250px;
-    width: 350px;
+    height: 100px;
+    width: 300px;
     margin-left: 125px;
 }
 
-
+#toTheRight{
+    position: absolute;
+    right: 120px;
+    top: 35px;
+}
 
 #navbarr {
     
@@ -12,9 +16,6 @@
     background-color: #0E8EA8;
     color: #fff;
     border-radius: 0;
-    
-    
-    
 }
 
 #dropit {
@@ -46,19 +47,22 @@ h2 {
     font-family: Consolas;
     background-color: #0E8EA8;
     color: #fff;
+    border-color: #212529;
 }
 
 #tableRows {
     font-family: Calibri;
     background-color: #83D1E1;
     color: #212529;
-
+    border-color: #212529;
+    
 }
 
 #scheduleRows {
     font-family: Calibri;
     background-color: #83D1E1;
     color: #212529;
+    border-color: #212529;
 
 }
 
@@ -110,12 +114,6 @@ h2 {
     margin-right: 15px;
 }
 
-#clock1{
-    text-align: right;
-    margin-right: 15px;
-}
-
-
 
 #wrap{
     min-width: 800px;
@@ -126,6 +124,7 @@ h2 {
     font-family: Calibri;
     background-color: #83D1E1;
     color: #212529;
+    border-color: #212529;
     
 }
 
@@ -181,3 +180,13 @@ tr:hover {
     font-size: 16px;
 }
 
+table {
+    border-collapse: collapse;
+    border-radius: 5px;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 0 1px #212529; /* this draws the table border  */ 
+}
+
+td {
+    border: 1px solid #212529;
+}
