@@ -8,8 +8,6 @@ function staffUserGet(){
         dataType: 'json',
         success: function(data) {
             random = data;
-            console.log(data);
-            console.log(random);
         }
     });
     window.addEventListener('load', () => {for(i = 0; i < random.results.length; i++) {
@@ -122,10 +120,7 @@ class DeliveryDriver extends Employee {
             var date3 = new Date();
             date4.setHours(hhours);
             date4.setMinutes(hminutes);
-            var millisecondss = (date4.getTime() - date3.getTime());  
-            console.log(millisecondss);
-        
-        //Here we can edit the toast text/info/data 
+            var millisecondss = (date4.getTime() - date3.getTime());   
             
             yo.push(setTimeout(()=>{
             const index = deliveryDrivers.map(e => e.name).indexOf(indexed);
@@ -139,7 +134,7 @@ class DeliveryDriver extends Employee {
 /*Function to delete rows in DeliveryBoard.  
   Asking confirmation to delete row, deleting active toast for that row,
   deleting the deliveryDrivers object and removing/filtering the empty object/index. */
-  function deleteRow(){
+function deleteRow(){
 
 
 if(row_id !== ''){
@@ -151,17 +146,15 @@ if(row_id !== ''){
             delete deliveryDrivers[row_id];
             row_id = "";
             deliveryDrivers = deliveryDrivers.filter(value => JSON.stringify(value) !== '{}');
-            console.log(deliveryDrivers)
 
         }else {return console.log("Returned")}
     
         }else{alert("Select a Delivery Driver before clicking the 'Clear' button!")}};    
         
-    //Function to get the row index for DeliveryDrivers table and to highlight the selected row
-    
+        
+//Function to get the row index for DeliveryDrivers table and to highlight the selected row   
     $(document).ready ( function () {
         $(document).on ("click", "#deliveryRows tr", function () {      
-            console.log("Row is: " + $(this).index());
             for(i = 0; i < document.getElementById("deliveryRows").rows.length; i++) {
                 document.getElementById("deliveryRows").rows[i].style.backgroundColor = '';
                     };
@@ -212,7 +205,6 @@ function loadAPI(){
     $('#tableRows td').click(function(){
         cola = $(this).parent().children().index($(this));
         rowa = $(this).parent().parent().children().index($(this).parent());
-        console.log(rowa)
       });
 
 // This function edits the staffmembers status to "Inn" and clears the Timeout for that object.
@@ -344,7 +336,6 @@ function addDelivery() {
         
         deliveryDrivers.push (submit);
         indeeeex = deliveryDrivers.indexOf(submit)
-        console.log(indeeeex);
         var table = document.getElementById("deliveryRows");
 
         var row = table.insertRow();
