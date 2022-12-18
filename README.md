@@ -23,7 +23,7 @@ as they finish their deliveries.
 
 ## Screenshots
 
-![App Screenshot](https://user-images.githubusercontent.com/114569709/207836751-dd75ac69-7a94-40d4-bc23-b96908f3d7e0.jpg)
+![App Screenshot](https://user-images.githubusercontent.com/114569709/208314553-95cd19df-2934-45ba-9746-27c66b1fc83f.jpg)
 
 
 ## How to run the app locally
@@ -37,11 +37,6 @@ Go to extensions and download the "Live Server" extension.
 Right Click the index.js file and click "Open with live server".
 The webapp should open in your browser now. 
 
-Or
-
-If you dont need the ability to edit the code, just open the downloaded file folder, 
-click into the "Web Application" folder, and double click the index.html file to open the
-app for a demo/use.
 
 
 ## Plugins
