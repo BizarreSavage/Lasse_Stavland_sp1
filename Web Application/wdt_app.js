@@ -142,32 +142,39 @@ class DeliveryDriver extends Employee {
   function deleteRow(){
 
 
-
+if(row_id !== ''){
     askForConfirmation = confirm("Are you sure you want to delete " + deliveryDrivers[row_id].name + "?");
-    if(askForConfirmation === true){
-        clearTimeout(yo[row_id]);
-        yo.splice(row_id, 1);
-        document.getElementById('deliveryRows').rows[row_id].remove();
-        delete deliveryDrivers[row_id];
-        row_id = "";
-        deliveryDrivers = deliveryDrivers.filter(value => JSON.stringify(value) !== '{}');
-        //deliveryDrivers.forEach((e, i) => e.index = i + 1)
-        console.log(deliveryDrivers)
+        if(askForConfirmation === true){
+            clearTimeout(yo[row_id]);
+            yo.splice(row_id, 1);
+            document.getElementById('deliveryRows').rows[row_id].remove();
+            delete deliveryDrivers[row_id];
+            row_id = "";
+            deliveryDrivers = deliveryDrivers.filter(value => JSON.stringify(value) !== '{}');
+            console.log(deliveryDrivers)
 
+        }else {return console.log("Returned")}
+    
+        }else{alert("Select a Delivery Driver before clicking the 'Clear' button!")}};    
         
-        }else{return console.log("Returned")}}
-        
-        
-    //Function to get the row index for DeliveryDrivers table
+    //Function to get the row index for DeliveryDrivers table and to highlight the selected row
     
     $(document).ready ( function () {
         $(document).on ("click", "#deliveryRows tr", function () {      
-    
-            row_id = $(this).index();
             console.log("Row is: " + $(this).index());
-        });
-    });
-
+            for(i = 0; i < document.getElementById("deliveryRows").rows.length; i++) {
+                document.getElementById("deliveryRows").rows[i].style.backgroundColor = '';
+                    };
+            row_id = $(this).index();
+            document.getElementById("deliveryRows").rows[row_id].style.backgroundColor = 'rgb(51, 155, 224)';
+        })});
+    $(document).ready ( function () {
+        $(document).on ("click", "#header", function () {
+            for(i = 0; i < document.getElementById("deliveryRows").rows.length; i++) {
+                document.getElementById("deliveryRows").rows[i].style.backgroundColor = '';
+                row_id = ""
+                    };
+        })})
 
 window.addEventListener('load', () => {
 
@@ -285,7 +292,7 @@ loadAPI();
 
 let staff = Array.from(Array(50), (_,x) => x);
 let yo = [];
-let row_id = 0;
+let row_id = "";
 let rowData = ""
 let cellData = ""
 let roww = [];
