@@ -37,11 +37,6 @@ Go to extensions and download the "Live Server" extension.
 Right Click the index.js file and click "Open with live server".
 The webapp should open in your browser now. 
 
-Or
-
-If you dont need the ability to edit the code, just open the downloaded file folder, 
-click into the "Web Application" folder, and double click the index.html file to open the
-app for a demo/use.
 
 
 ## Plugins
