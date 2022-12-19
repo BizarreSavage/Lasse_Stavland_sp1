@@ -8,13 +8,41 @@ function staffUserGet(){
         dataType: 'json',
         success: function(data) {
             random = data;
-        }
-    });
-    window.addEventListener('load', () => {for(i = 0; i < random.results.length; i++) {
-        var roww2 = new StaffMember(random.results[i].name.first, random.results[i].name.last, random.results[i].picture, random.results[i].email, "In", "", "", "");
-        roww.push(roww2);
-        }})
-};
+            for(i = 0; i < random.results.length; i++) {
+                var roww2 = new StaffMember(random.results[i].name.first, random.results[i].name.last, random.results[i].picture, random.results[i].email, "In", "", "", "");
+                roww.push(roww2);}
+                for (i=0; i < roww.length; i++){
+                    var table = document.getElementById("tableRows");
+                    var row = table.insertRow(i);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    var cell8 = row.insertCell(7);
+                    
+            
+                    var img = document.createElement('img');
+                    img.src = roww[i].picture.thumbnail;
+                    cell1.appendChild(img);
+                    cell2.innerHTML = roww[i].name
+                    cell3.innerHTML = roww[i].surname
+                    cell4.innerHTML = roww[i].email
+                    cell5.innerHTML = roww[i].status
+                    cell6.innerHTML = ""
+                    cell7.innerHTML = ""
+                    cell8.innerHTML = ""
+}
+        $('#tableRows td').click(function(){
+            cola = $(this).parent().children().index($(this));
+            rowa = $(this).parent().parent().children().index($(this).parent());
+        });
+}})}
+        
+    
+
 
 staffUserGet();
 
@@ -151,7 +179,6 @@ if(row_id !== ''){
     
         }else{alert("Select a Delivery Driver before clicking the 'Clear' button!")}};    
         
-        
 //Function to get the row index for DeliveryDrivers table and to highlight the selected row   
     $(document).ready ( function () {
         $(document).on ("click", "#deliveryRows tr", function () {      
@@ -172,40 +199,8 @@ if(row_id !== ''){
 window.addEventListener('load', () => {
 
 
-function loadAPI(){
-    for (i=0; i < roww.length; i++){
-        var table = document.getElementById("tableRows");
-        var row = table.insertRow(i);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell6 = row.insertCell(5);
-        var cell7 = row.insertCell(6);
-        var cell8 = row.insertCell(7);
-        
-
-        var img = document.createElement('img');
-        img.src = roww[i].picture.thumbnail;
-        cell1.appendChild(img);
-        cell2.innerHTML = roww[i].name
-        cell3.innerHTML = roww[i].surname
-        cell4.innerHTML = roww[i].email
-        cell5.innerHTML = roww[i].status
-        cell6.innerHTML = ""
-        cell7.innerHTML = ""
-        cell8.innerHTML = ""
-
-
-        
-    }
-
 //This function selects the clicked row on the Staff table.
-    $('#tableRows td').click(function(){
-        cola = $(this).parent().children().index($(this));
-        rowa = $(this).parent().parent().children().index($(this).parent());
-      });
+    
 
 // This function edits the staffmembers status to "Inn" and clears the Timeout for that object.
     function staffInn(){
@@ -226,11 +221,10 @@ function loadAPI(){
             staffInn();
         
 
-//This function changes the objects status to "Out", calculates the expected return time, and starts the setTimeout for the toast.
-            
+//This function changes the objects status to "Out", calculates the expected return time, and starts the setTimeout for the toast.  
     function staffOut() {
         $("#out").click(function(){
-                
+            
                 duration = parseInt(prompt("Estimated absence of " + roww[rowa].name + " " + roww[rowa].surname + " in minutes?"));
                 check();
                     function check(){ if (!isNaN(duration)){ 
@@ -261,7 +255,7 @@ function loadAPI(){
                     }}
             )}
             staffOut();  
-        }
+        
 
 
 function timeConvert(n) {
@@ -271,14 +265,9 @@ function timeConvert(n) {
     var minutess = (hours - rhours) * 60;
     var rminutes = Math.round(minutess);
     return rhours + "h " + rminutes + "m.";
-}
+}}
                    
-  
-
-
-loadAPI();
-
-})
+  )
 
 //Declaring some global variables 
 
